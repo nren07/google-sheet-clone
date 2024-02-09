@@ -5,8 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sheet Clone</title>
     <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
+    <section class="options flex-align">
+        <div class="flex-align">
+            <form class="form-container flex-align">
+                <select name="fontFamily">
+                    <option name="fontFamily" value="Default">Default</option>
+                </select>
+                <input type="number" name="fontSize" value="16" min="1" max="72" >
+                <div>
+                    <input type="checkbox" name="isBold" id="bold">
+                    <label for="bold" class="material-icons">format_bold</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="isItalic" id="italic">
+                    <label for="italic" class="material-icons">format_italic</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="isUnderline" id="underline">
+                    <label for="underline" class="material-icons">format_underlined</label>
+                </div>
+                
+                <input type="radio" name="align" id="left" checked value="left">
+                <label for="left" class="material-icons">format_align_left</label>
+                <input type="radio" name="align" id="center" value="center">
+                <label for="center" class="material-icons">format_align_center</label>
+                <input type="radio" name="align" id="right" value="right">
+                <label for="right" class="material-icons">format_align_right</label>
+    
+                <input type="color" name="textColor" id="textColor" value="#000000">
+                <label for="textColor" class="material-icons">format_color_text</label>
+                <input type="color" name="bgColor"value="#ffffff" id="bgColor">
+                <label for="bgColor" class="material-icons" >format_color_fill</label>
+            </form> 
+                <label for="download" class="material-icons">cloud_download</label>
+                <button style="display: none;" id="download"></button>
+                <label for="upload" class="material-icons">cloud_upload</label>
+                <input type="file" style="display: none;" id="upload">
+        </div>  
+        <div class="box flex-align">
+            <div class="selected-cell"></div>
+            <input type="text" id="evaluate" placeholder="evaluate expression here">
+        </div>
+    </section>
     <section class="container">
         <div id="plate"></div>
         <div class="head-row" id="head_row"></div>
@@ -14,6 +58,8 @@
         <div class="body" id="body"></div>
 
     </section>
+    <script src="options.js"></script>
     <script src="./script.js"></script>
+    <script src="./export-import.js"></script>
 </body>
 </html>

@@ -23,10 +23,13 @@ for(let i=1;i<rows;i++){
     const row=document.createElement("div");
     row.className="row";
     for(let j=1;j<=columns;j++){
-        const cols=document.createElement("div");
-        cols.className="cell";
-        cols.contentEditable="true";
-        row.append(cols);
+        const cell=document.createElement("div");
+        cell.className="cell";
+        cell.id=`${String.fromCharCode(j+64)}${i}`;
+        cell.contentEditable="true";
+        cell.addEventListener("focus",onFocus);
+        cell.addEventListener("input",onChangeInnerText);
+        row.append(cell);
     }
     body.append(row);
 }
